@@ -1,6 +1,7 @@
 package fileprocessor
 
-//FindDuplicates function takes in a slice of integers and returns a list of integers containing duplicates
+//FindIntegerDuplicates function takes in a slice of integers and returns a list of integers containing duplicates.
+// It will return an empty list if no duplicate is found
 func FindIntegerDuplicates(arr []int) []int {
 
 	itemMap := make(map[int]bool, 0)
