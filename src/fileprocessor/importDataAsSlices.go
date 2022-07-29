@@ -17,9 +17,17 @@ func ImportFileAsSlices(filePath string) []int {
 		log.Fatal(err)
 	}
 
-	defer file.Close()
+	//defer file.Close()
+	defer func() {
+		if closeErr := file.Close(); closeErr != nil {
+			err = closeErr
+		}
+	}()
 
 	scanner := bufio.NewScanner(file)
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
 
 	for scanner.Scan() {
 		fmt.Println(scanner.Text())
@@ -31,10 +39,5 @@ func ImportFileAsSlices(filePath string) []int {
 	}
 
 	fmt.Println(dataArr)
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
 	return dataArr
 }
