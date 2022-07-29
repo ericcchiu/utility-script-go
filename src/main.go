@@ -9,5 +9,5 @@ func main() {
 	fmt.Println(fileprocessor.FindIntegerDuplicates([]int{1, 2, 2, 3, 3, 4, 2, 0}))
 	fmt.Println(fileprocessor.FindIntegerDuplicates([]int{1, 2, 3}))
 	filePath := "./keys.txt"
-	fileprocessor.ImportFileAsSlices(filePath)
+	fmt.Println(fileprocessor.FindIntegerDuplicates(fileprocessor.ImportFileAsSlices(filePath)))
 }

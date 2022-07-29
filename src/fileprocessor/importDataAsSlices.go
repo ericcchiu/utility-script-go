@@ -2,7 +2,6 @@ package fileprocessor
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -30,14 +29,11 @@ func ImportFileAsSlices(filePath string) []int {
 	}
 
 	for scanner.Scan() {
-		fmt.Println(scanner.Text())
 		intVar, err := strconv.Atoi(scanner.Text())
 		if err != nil {
 			log.Fatal(err)
 		}
 		dataArr = append(dataArr, intVar)
 	}
-
-	fmt.Println(dataArr)
 	return dataArr
 }
